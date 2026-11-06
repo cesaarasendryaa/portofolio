@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en" class="motion-safe:scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caesar | Portfolio</title>
+  <meta name="description" content="Portfolio of Caesar Rasendrya, a student, UI/UX designer and future web developer.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Caesar | Portofolio">
+  <meta property="og:description" content="Portfolio of Caesar Rasendrya, a student, UI/UX designer and future web developer.">
+  <link rel="icon" href="./asset/sharlogo-removebg-preview.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body class="overflow-x-hidden bg-black text-cream antialiased">
+  <!-- ===== INTRO / LOADING SCREEN ===== -->
+  <input id="enter" type="checkbox" class="sr-only" aria-label="Enter website">
+  <div class="intro fixed inset-0 z-100" role="dialog" aria-label="Welcome">
+    <div class="intro-panel-top absolute inset-x-0 top-0 h-1/2 bg-black"></div>
+    <div class="intro-panel-bottom absolute inset-x-0 bottom-0 h-1/2 bg-black"></div>
+
+    <div class="intro-content absolute inset-0 flex flex-col items-center justify-center gap-6 px-6 text-center">
+      <img src="./asset/sharlogo-removebg-preview.png" alt="" class="w-14 animate-logo-pulse md:w-20">
+
+      <p class="text-sm font-semibold tracking-widest text-sand md:text-base"><span class="inline-block origin-bottom-right animate-wave" aria-hidden="true">👋</span> HELLO THERE, I’M CAESAR</p>
+
+      <div>
+        <div class="overflow-hidden pb-1"><p class="animate-text-up font-title text-4xl uppercase leading-none tracking-wide text-blush sm:text-6xl md:text-8xl">Welcome to my</p></div>
+        <div class="overflow-hidden pb-1"><p class="animate-text-up font-title text-4xl uppercase leading-none tracking-wide text-transparent text-outline-sand [animation-delay:0.15s] sm:text-6xl md:text-8xl">portofolio website</p></div>
+      </div>
+
+      <div class="flex w-56 flex-col items-center gap-3 md:w-72">
+        <div class="h-1 w-full overflow-hidden rounded-full bg-blush/25"><div class="h-full origin-left animate-load-bar rounded-full bg-blush"></div></div>
+        <div class="relative h-5 w-full text-xs tracking-widest text-sand">
+          <p class="absolute inset-0 animate-msg-out">Getting things ready <span class="intro-counter font-semibold"></span></p>
+          <p class="absolute inset-0 animate-msg-in font-semibold text-blush">Ready, come on in!</p>
+        </div>
+      </div>
+
+      <label for="enter" class="enter-btn inline-flex animate-enter cursor-pointer items-center gap-2 rounded-full bg-blush px-8 py-3 text-sm font-bold uppercase tracking-widest text-ink transition hover:scale-105 hover:bg-sand">Enter <span aria-hidden="true">✦</span></label>
+      <p class="animate-msg-in text-xs text-sand/80"><span aria-hidden="true">🎧</span> Best enjoyed with sound on</p>
+    </div>
+  </div>
+
+  <!-- garis progres scroll -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- tombol musik -->
+  <button id="music-btn" type="button" aria-pressed="false" aria-label="Toggle background music" class="music-btn fixed bottom-5 right-5 z-80 grid size-12 place-items-center rounded-full border border-blush/40 bg-night/80 text-blush backdrop-blur transition duration-300 hover:scale-110 hover:bg-blush hover:text-ink">
+    <span class="flex h-5 items-end gap-0.5" aria-hidden="true"><i class="music-bar"></i><i class="music-bar"></i><i class="music-bar"></i></span>
+  </button>
+  <audio id="bgm" src="./asset/champagnesupernovaa.mp3" loop preload="auto"></audio>
+
+  <!-- navigasi slide (desktop) -->
+  <nav aria-label="Slides" class="fixed right-5 top-1/2 z-70 hidden -translate-y-1/2 flex-col gap-3 lg:flex">
+    <a href="#about" aria-label="About" class="size-3 rounded-full border border-blush transition duration-300 hover:scale-125 hover:bg-blush"></a>
+    <a href="#skills" aria-label="Skills" class="size-3 rounded-full border border-blush transition duration-300 hover:scale-125 hover:bg-blush"></a>
+    <a href="#hobbies" aria-label="Hobbies" class="size-3 rounded-full border border-blush transition duration-300 hover:scale-125 hover:bg-blush"></a>
+    <a href="#project" aria-label="Project" class="size-3 rounded-full border border-blush transition duration-300 hover:scale-125 hover:bg-blush"></a>
+    <a href="#experience" aria-label="Experience" class="size-3 rounded-full border border-blush transition duration-300 hover:scale-125 hover:bg-blush"></a>
+    <a href="#service" aria-label="Service" class="size-3 rounded-full border border-blush transition duration-300 hover:scale-125 hover:bg-blush"></a>
+    <a href="#contact" aria-label="Contact" class="size-3 rounded-full border border-blush transition duration-300 hover:scale-125 hover:bg-blush"></a>
+  </nav>
+
+<main>
+  <div>
+  <!-- ================= HERO ================= -->
+  <section id="home" class="overflow-hidden bg-black text-cream lg:sticky lg:top-0 lg:h-screen">
+
+    <!-- header HP & tablet -->
+    <header class="relative z-30 flex animate-rise items-center justify-between px-5 pt-5 sm:px-8 sm:pt-6 lg:hidden">
+      <img src="./asset/sharlogo-removebg-preview.png" alt="Shar logo" class="w-11 sm:w-14">
+      <a href="https://www.instagram.com/sharasendrya_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-blush transition duration-300 hover:scale-110 hover:text-sand">
+        <svg viewBox="0 0 24 24" class="size-5 sm:size-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+        </svg>
+      </a>
+    </header>
+
+    <!-- navbar desktop -->
+    <nav aria-label="Main" class="relative z-30 hidden animate-rise justify-end gap-x-24 px-20 pt-9 lg:flex">
+      <a href="#about" class="font-bold text-cream transition-colors duration-300 hover:text-sand">About</a>
+      <a href="#skills" class="font-bold text-cream transition-colors duration-300 hover:text-sand">Skills</a>
+      <a href="#hobbies" class="font-bold text-cream transition-colors duration-300 hover:text-sand">Hobbies</a>
+      <a href="#project" class="font-bold text-cream transition-colors duration-300 hover:text-sand">Project</a>
+      <a href="#experience" class="font-bold text-cream transition-colors duration-300 hover:text-sand">Experience</a>
+      <a href="#service" class="font-bold text-cream transition-colors duration-300 hover:text-sand">Service</a>
+    </nav>
+
+    <!-- nama: CAESAR di belakang foto, RASENDRYA di depan foto (HP & tablet) -->
+    <h1 class="relative mt-12 whitespace-nowrap px-4 text-left font-display text-hero font-normal uppercase tracking-tight sm:mt-16 lg:mt-[13vh] lg:px-10 lg:text-center lg:text-hero-lg">
+      <span class="block animate-from-left text-blush text-outline-blush-dark lg:inline-block lg:text-outline-none">Caesar</span>
+      <span class="relative z-20 block animate-from-right text-right text-black text-outline-sand-thick lg:z-0 lg:inline-block lg:text-transparent lg:text-outline-sand">Rasendrya</span>
+    </h1>
+
+    <img src="./asset/newport-removebg-preview.png" alt="Caesar Rasendrya" fetchpriority="high"
+         class="relative z-10 mx-auto -mt-[22vw] block w-3/5 animate-photo object-contain object-bottom lg:absolute lg:bottom-0 lg:left-1/2 lg:mt-0 lg:h-4/5 lg:w-auto lg:max-w-none lg:-translate-x-1/2">
+
+    <!-- info kiri (desktop) -->
+    <div class="hidden animate-rise-late lg:absolute lg:bottom-4/25 lg:left-3/40 lg:z-30 lg:block">
+      <p class="inline-block border-b-2 border-blush pb-1 text-2xl font-bold">UI / UX Designer</p>
+      <p class="mt-1 text-2xl font-bold">Web Developer</p>
+      <p class="mt-8 text-sm font-semibold text-blush md:text-xl">“Good design is transparent.”<br>— Joe Sparano</p>
+      <a href="#contact" class="mt-8 inline-block rounded-full bg-blush px-6 py-2.5 text-sm font-semibold text-cream transition duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:shadow-blush/40">Let’s collaborate ↗</a>
+    </div>
+
+    <!-- sosmed kanan (desktop) -->
+    <div class="hidden animate-rise-late lg:absolute lg:bottom-4/25 lg:right-3/40 lg:z-30 lg:flex lg:flex-col lg:gap-8">
+      <a href="https://www.instagram.com/sharasendrya_/" target="_blank" rel="noopener noreferrer" class="w-36 rounded-full border border-blush py-2 text-center text-sm font-semibold text-cream transition duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-blush">Instagram</a>
+      <a href="https://github.com/cesaarasendryaa" target="_blank" rel="noopener noreferrer" class="w-36 rounded-full border border-blush py-2 text-center text-sm font-semibold text-cream transition duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-blush">Github</a>
+      <a href="#" class="w-36 rounded-full border border-blush py-2 text-center text-sm font-semibold text-cream transition duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-blush">Linkedin</a>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="relative z-10 -mt-16 overflow-hidden rounded-t-3xl bg-transparent pb-8 lg:mt-0 lg:min-h-screen lg:bg-black lg:pb-20">
+    <div class="h-16 bg-linear-to-b from-blush/65 to-black lg:h-[7vw]"></div>
+
+    <!-- tech ticker -->
+    <div class="overflow-hidden border-y border-blush/40 py-4 md:py-6">
+      <div class="flex w-max animate-marquee whitespace-nowrap font-display text-2xl uppercase text-blush hover:pause-anim motion-reduce:animate-none md:text-5xl">
+        <div class="flex shrink-0 items-center gap-6 pr-6 md:gap-10 md:pr-10">
+          <span>CAESAR</span><span class="text-sand">✦</span>
+          <span class="text-transparent text-outline-blush-thin">RASENDRYA</span><span class="text-sand">✦</span>
+          <span>CAESAR</span><span class="text-sand">✦</span>
+          <span class="text-transparent text-outline-blush-thin">RASENDRYA</span><span class="text-sand">✦</span>
+          <span>CAESAR</span><span class="text-sand">✦</span>
+          <span class="text-transparent text-outline-blush-thin">RASENDRYA</span><span class="text-sand">✦</span>
+        </div>
+        <div class="flex shrink-0 items-center gap-6 pr-6 md:gap-10 md:pr-10" aria-hidden="true">
+          <span>CAESAR</span><span class="text-sand">✦</span>
+          <span class="text-transparent text-outline-blush-thin">RASENDRYA</span><span class="text-sand">✦</span>
+          <span>CAESAR</span><span class="text-sand">✦</span>
+          <span class="text-transparent text-outline-blush-thin">RASENDRYA</span><span class="text-sand">✦</span>
+          <span>CAESAR</span><span class="text-sand">✦</span>
+          <span class="text-transparent text-outline-blush-thin">RASENDRYA</span><span class="text-sand">✦</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto mt-12 w-22/25 max-w-6xl sm:w-9/10 md:mt-16">
+      <div class="mb-10 md:mb-14">
+        <h2 class="reveal font-title text-title font-normal uppercase tracking-wide text-blush"><span class="mr-1 inline-block text-transparent text-outline-blush" aria-hidden="true">/</span>About Me</h2>
+      </div>
+
+      <div class="flex flex-col justify-between gap-10 md:flex-row md:gap-20">
+        <div class="reveal w-full md:w-11/20">
+          <h3 class="mb-6 text-2xl font-bold leading-snug text-sand md:text-3xl">I love to work and be creative</h3>
+          <p class="mb-4 text-sm text-white md:text-base">Hi there! My name is <b class="text-blush">Caesar Rasendrya</b>, though I usually go by <b class="text-sand">Caesar</b>. a student who loves turning ideas into clean, easy-to-use designs. I start in Figma, planning layouts and interfaces, then bring them to life with HTML, CSS, and Tailwind CSS. For me, good design should feel simple and work well on every screen.</p>
+          <p class="mb-4 text-sm text-white md:text-base">Outside the screen, I find balance in reading the Quran and studying, then recharge through football, running, equestrian, freediving, and hiking. These activities have taught me discipline, focus, patience, and the importance of staying calm under pressure. I carry the same mindset into every project I build, always looking to learn, improve, and grow.</p>
+          <a href="#contact" class="mt-4 inline-block text-sm font-bold text-blush transition duration-300 hover:text-sand">let's work together!!</a>
+        </div>
+        <dl class="reveal w-full border-t border-blush md:w-7/20">
+          <div class="flex justify-between gap-5 border-b border-blush py-4"><dt class="text-sm text-sand">Name</dt><dd class="text-right text-sm font-bold">Caesar Rasendrya</dd></div>
+          <div class="flex justify-between gap-5 border-b border-blush py-4"><dt class="text-sm text-sand">Status</dt><dd class="text-right text-sm font-bold">Student</dd></div>
+          <div class="flex justify-between gap-5 border-b border-blush py-4"><dt class="text-sm text-sand">Focus</dt><dd class="text-right text-sm font-bold">Web Development</dd></div>
+          <div class="flex justify-between gap-5 border-b border-blush py-4"><dt class="text-sm text-sand">Email</dt><dd class="text-right text-sm font-bold">qeidrya11@gmail.com</dd></div>
+          <div class="flex justify-between gap-5 border-b border-blush py-4"><dt class="text-sm text-sand">Location</dt><dd class="text-right text-sm font-bold">Bogor, West Java</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <!-- ================= SKILLS (GALLERY) ================= -->
+  <section id="skills" class="flex min-h-screen flex-col justify-center py-16 md:py-20">
+    <div class="mx-auto w-22/25 max-w-6xl sm:w-9/10">
+      <div class="mb-10 md:mb-14">
+        <h2 class="reveal font-title text-title font-normal uppercase tracking-wide text-blush"><span class="mr-1 inline-block text-transparent text-outline-blush" aria-hidden="true">/</span>My Skills</h2>
+      </div>
+
+      <div class="grid auto-rows-[10rem] grid-flow-dense grid-cols-2 gap-3 md:auto-rows-[12rem] md:grid-cols-4 md:gap-4">
+        <article tabindex="0" class="reveal group relative overflow-hidden rounded-3xl bg-ink outline-none focus-visible:ring-2 focus-visible:ring-sand col-span-2 row-span-2">
+          <img src="./asset/uiux.png" alt="UI/UX Design" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+          <div class="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 via-black/50 to-transparent p-4 pt-10 md:p-5 md:pt-12">
+            <p class="text-xs font-semibold tracking-widest text-blush">DESIGN</p>
+            <h3 class="font-display text-base uppercase leading-tight text-cream md:text-lg">UI / UX Design</h3>
+            <p class="tile-detail text-xs leading-snug text-cream/80">Designing clean, user-friendly interfaces and layouts in Figma.</p>
+          </div>
+        </article>
+
+        <article tabindex="0" class="reveal group relative overflow-hidden rounded-3xl bg-ink outline-none focus-visible:ring-2 focus-visible:ring-sand">
+          <img src="./asset/html.png" alt="HTML" loading="lazy" decoding="async" class="size-full object-contain p-8 pb-16 transition duration-500 group-hover:scale-105">
+          <div class="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 via-black/50 to-transparent p-4 pt-10 md:p-5 md:pt-12">
+            <p class="text-xs font-semibold tracking-widest text-blush">WEB</p>
+            <h3 class="font-display text-base uppercase leading-tight text-cream md:text-lg">HTML</h3>
+            <p class="tile-detail text-xs leading-snug text-cream/80">Semantic and clean website structure.</p>
+          </div>
+        </article>
+
+        <article tabindex="0" class="reveal group relative overflow-hidden rounded-3xl bg-ink outline-none focus-visible:ring-2 focus-visible:ring-sand">
+          <img src="./asset/css.png" alt="CSS" loading="lazy" decoding="async" class="size-full object-contain p-8 pb-16 transition duration-500 group-hover:scale-105">
+          <div class="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 via-black/50 to-transparent p-4 pt-10 md:p-5 md:pt-12">
+            <p class="text-xs font-semibold tracking-widest text-blush">WEB</p>
+            <h3 class="font-display text-base uppercase leading-tight text-cream md:text-lg">CSS</h3>
+            <p class="tile-detail text-xs leading-snug text-cream/80">Layouts, colors, spacing, and responsive design.</p>
+          </div>
+        </article>
+
+        <article tabindex="0" class="reveal group relative overflow-hidden rounded-3xl bg-ink outline-none focus-visible:ring-2 focus-visible:ring-sand">
+          <img src="./asset/tailwind.png" alt="Tailwind CSS" loading="lazy" decoding="async" class="size-full object-contain p-8 pb-16 transition duration-500 group-hover:scale-105">
+          <div class="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 via-black/50 to-transparent p-4 pt-10 md:p-5 md:pt-12">
+            <p class="text-xs font-semibold tracking-widest text-blush">WEB</p>
+            <h3 class="font-display text-base uppercase leading-tight text-cream md:text-lg">Tailwind CSS</h3>
+            <p class="tile-detail text-xs leading-snug text-cream/80">Fast, modern interfaces with utility classes.</p>
+          </div>
+        </article>
+
+        <article tabindex="0" class="reveal group relative overflow-hidden rounded-3xl bg-ink outline-none focus-visible:ring-2 focus-visible:ring-sand">
+          <img src="./asset/figma.png" alt="Figma" loading="lazy" decoding="async" class="size-full object-contain p-8 pb-16 transition duration-500 group-hover:scale-105">
+          <div class="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 via-black/50 to-transparent p-4 pt-10 md:p-5 md:pt-12">
+            <p class="text-xs font-semibold tracking-widest text-blush">DESIGN</p>
+            <h3 class="font-display text-base uppercase leading-tight text-cream md:text-lg">Figma</h3>
+            <p class="tile-detail text-xs leading-snug text-cream/80">Wireframes, prototypes, and UI design.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOBBIES ================= -->
+  <section id="hobbies" class="flex min-h-screen flex-col justify-center py-16 md:py-20">
+    <div class="mx-auto w-22/25 max-w-6xl sm:w-9/10">
+      <div class="mb-10 md:mb-14">
+        <h2 class="reveal font-title text-title font-normal uppercase tracking-wide text-blush"><span class="mr-1 inline-block text-transparent text-outline-blush" aria-hidden="true">/</span>Hobbies</h2>
+        <p class="mt-7 text-sm text-white md:text-base">What I love doing beyond the screen.</p>
+      </div>
+
+      <div class="grid auto-rows-[10rem] grid-flow-dense grid-cols-2 gap-3 md:auto-rows-[14rem] md:grid-cols-3 md:gap-4">
+        <article tabindex="0" class="reveal group relative overflow-hidden rounded-3xl bg-ink outline-none focus-visible:ring-2 focus-visible:ring-sand col-span-2 row-span-2">
+          <img src="./asset/hikingprtfolio.png" alt="Hiking" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+          <div class="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 via-black/50 to-transparent p-4 pt-10 md:p-5 md:pt-12">
+            <p class="text-xs font-semibold tracking-widest text-blush">OUTDOOR</p>
+            <h3 class="font-display text-base uppercase leading-tight text-cream md:text-lg">Hiking</h3>
+            <p class="tile-detail text-xs leading-snug text-cream/80">Patience, endurance, and exploring new paths.</p>
+          </div>
+        </article>
+
+        <article tabindex="0" class="reveal group relative overflow-hidden rounded-3xl bg-ink outline-none focus-visible:ring-2 focus-visible:ring-sand">
+          <img src="./asset/fuballskill.png" alt="Football" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+          <div class="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 via-black/50 to-transparent p-4 pt-10 md:p-5 md:pt-12">
+            <p class="text-xs font-semibold tracking-widest text-blush">SPORT</p>
+            <h3 class="font-display text-base uppercase leading-tight text-cream md:text-lg">Football</h3>
+            <p class="tile-detail text-xs leading-snug text-cream/80">Teamwork, stamina, and fair play.</p>
+          </div>
+        </article>
+
+        <article tabindex="0" class="reveal group relative overflow-hidden rounded-3xl bg-ink outline-none focus-visible:ring-2 focus-visible:ring-sand">
+          <img src="./asset/runner.portfolio.png" alt="Running" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+          <div class="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 via-black/50 to-transparent p-4 pt-10 md:p-5 md:pt-12">
+            <p class="text-xs font-semibold tracking-widest text-blush">SPORT</p>
+            <h3 class="font-display text-base uppercase leading-tight text-cream md:text-lg">Running</h3>
+            <p class="tile-detail text-xs leading-snug text-cream/80">Consistent, keep the pace.</p>
+          </div>
+        </article>
+
+        <article tabindex="0" class="reveal group relative overflow-hidden rounded-3xl bg-ink outline-none focus-visible:ring-2 focus-visible:ring-sand">
+          <img src="./asset/diveskill.png" alt="Free Diving" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+          <div class="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 via-black/50 to-transparent p-4 pt-10 md:p-5 md:pt-12">
+            <p class="text-xs font-semibold tracking-widest text-blush">OUTDOOR</p>
+            <h3 class="font-display text-base uppercase leading-tight text-cream md:text-lg">Free Diving</h3>
+            <p class="tile-detail text-xs leading-snug text-cream/80">Staying calm, focused, and disciplined.</p>
+          </div>
+        </article>
+
+        <article tabindex="0" class="reveal group relative overflow-hidden rounded-3xl bg-ink outline-none focus-visible:ring-2 focus-visible:ring-sand">
+          <img src="./asset/equestria.jpg" alt="Equestrian" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+          <div class="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 via-black/50 to-transparent p-4 pt-10 md:p-5 md:pt-12">
+            <p class="text-xs font-semibold tracking-widest text-blush">OUTDOOR</p>
+            <h3 class="font-display text-base uppercase leading-tight text-cream md:text-lg">Equestrian</h3>
+            <p class="tile-detail text-xs leading-snug text-cream/80">Balance, trust, and control with every ride.</p>
+          </div>
+        </article>
+
+        <article tabindex="0" class="reveal group relative overflow-hidden rounded-3xl bg-ink outline-none focus-visible:ring-2 focus-visible:ring-sand col-span-2 md:col-span-1">
+          <img src="./asset/bl.png" alt="Billiard" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+          <div class="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 via-black/50 to-transparent p-4 pt-10 md:p-5 md:pt-12">
+            <p class="text-xs font-semibold tracking-widest text-blush">GAME</p>
+            <h3 class="font-display text-base uppercase leading-tight text-cream md:text-lg">Billiard</h3>
+            <p class="tile-detail text-xs leading-snug text-cream/80">Focus, precision, and calm decisions.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECT ================= -->
+  <section id="project" class="flex min-h-screen flex-col justify-center py-16 md:py-20">
+    <div class="mx-auto w-22/25 max-w-6xl sm:w-9/10">
+      <div class="mb-10 md:mb-14">
+        <h2 class="reveal font-title text-title font-normal uppercase tracking-wide text-blush"><span class="mr-1 inline-block text-transparent text-outline-blush" aria-hidden="true">/</span>My Project</h2>
+      </div>
+    </div>
+
+    <!-- ticker project: kiri ke kanan -->
+    <div class="overflow-hidden py-8 mask-fade-x">
+      <div class="flex w-max animate-marquee-reverse hover:pause-anim motion-reduce:animate-none">
+        <div class="flex min-w-screen shrink-0 justify-around gap-6 pr-6">
+          <article class="group w-64 shrink-0 overflow-hidden rounded-3xl border border-blush/30 bg-night transition duration-500 hover:-translate-y-2 hover:border-blush hover:shadow-2xl hover:shadow-blush/20 sm:w-72 md:w-80">
+            <div class="relative aspect-4/3 overflow-hidden bg-white">
+              <img src="./asset/prsonal.png" alt="Personal Portofolio" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+              <span class="absolute left-4 top-4 rounded-full bg-blush px-3 py-1 text-xs font-bold tracking-widest text-ink">WEB DEVELOPMENT</span>
+            </div>
+            <h3 class="p-5 font-display text-lg font-normal uppercase leading-tight text-blush">Personal Portofolio</h3>
+          </article>
+
+          <article class="group w-64 shrink-0 overflow-hidden rounded-3xl border border-blush/30 bg-night transition duration-500 hover:-translate-y-2 hover:border-blush hover:shadow-2xl hover:shadow-blush/20 sm:w-72 md:w-80">
+            <div class="relative aspect-4/3 overflow-hidden bg-white">
+              <img src="./asset/graphicdesigncaesar.png" alt="GraphicDesign" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+              <span class="absolute left-4 top-4 rounded-full bg-blush px-3 py-1 text-xs font-bold tracking-widest text-ink">DESIGN</span>
+            </div>
+            <h3 class="p-5 font-display text-lg font-normal uppercase leading-tight text-blush">Graphic Design</h3>
+          </article>
+
+          <article class="group w-64 shrink-0 overflow-hidden rounded-3xl border border-blush/30 bg-night transition duration-500 hover:-translate-y-2 hover:border-blush hover:shadow-2xl hover:shadow-blush/20 sm:w-72 md:w-80">
+            <div class="relative aspect-4/3 overflow-hidden bg-white">
+              <img src="./asset/poster.png" alt="Poster Design" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+              <span class="absolute left-4 top-4 rounded-full bg-blush px-3 py-1 text-xs font-bold tracking-widest text-ink">DESIGN</span>
+            </div>
+            <h3 class="p-5 font-display text-lg font-normal uppercase leading-tight text-blush">Poster Design</h3>
+          </article>
+
+          <article class="group w-64 shrink-0 overflow-hidden rounded-3xl border border-blush/30 bg-night transition duration-500 hover:-translate-y-2 hover:border-blush hover:shadow-2xl hover:shadow-blush/20 sm:w-72 md:w-80">
+            <div class="relative aspect-4/3 overflow-hidden bg-white">
+              <img src="./asset/coverbook.png" alt="Cover Book Design" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+              <span class="absolute left-4 top-4 rounded-full bg-blush px-3 py-1 text-xs font-bold tracking-widest text-ink">DESIGN</span>
+            </div>
+            <h3 class="p-5 font-display text-lg font-normal uppercase leading-tight text-blush">Cover Book Design</h3>
+          </article>
+        </div>
+        <div class="flex min-w-screen shrink-0 justify-around gap-6 pr-6" aria-hidden="true">
+          <article class="group w-64 shrink-0 overflow-hidden rounded-3xl border border-blush/30 bg-night transition duration-500 hover:-translate-y-2 hover:border-blush hover:shadow-2xl hover:shadow-blush/20 sm:w-72 md:w-80">
+            <div class="relative aspect-4/3 overflow-hidden bg-white">
+              <img src="./asset/prsonal.png" alt="" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+              <span class="absolute left-4 top-4 rounded-full bg-blush px-3 py-1 text-xs font-bold tracking-widest text-ink">WEB DEVELOPMENT</span>
+            </div>
+            <h3 class="p-5 font-display text-lg font-normal uppercase leading-tight text-blush">Personal Portofolio</h3>
+          </article>
+
+          <article class="group w-64 shrink-0 overflow-hidden rounded-3xl border border-blush/30 bg-night transition duration-500 hover:-translate-y-2 hover:border-blush hover:shadow-2xl hover:shadow-blush/20 sm:w-72 md:w-80">
+            <div class="relative aspect-4/3 overflow-hidden bg-white">
+              <img src="./asset/graphicdesigncaesar.png" alt="" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+              <span class="absolute left-4 top-4 rounded-full bg-blush px-3 py-1 text-xs font-bold tracking-widest text-ink">DESIGN</span>
+            </div>
+            <h3 class="p-5 font-display text-lg font-normal uppercase leading-tight text-blush">Graphic Design</h3>
+          </article>
+
+          <article class="group w-64 shrink-0 overflow-hidden rounded-3xl border border-blush/30 bg-night transition duration-500 hover:-translate-y-2 hover:border-blush hover:shadow-2xl hover:shadow-blush/20 sm:w-72 md:w-80">
+            <div class="relative aspect-4/3 overflow-hidden bg-white">
+              <img src="./asset/poster.png" alt="" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+              <span class="absolute left-4 top-4 rounded-full bg-blush px-3 py-1 text-xs font-bold tracking-widest text-ink">DESIGN</span>
+            </div>
+            <h3 class="p-5 font-display text-lg font-normal uppercase leading-tight text-blush">Poster Design</h3>
+          </article>
+
+          <article class="group w-64 shrink-0 overflow-hidden rounded-3xl border border-blush/30 bg-night transition duration-500 hover:-translate-y-2 hover:border-blush hover:shadow-2xl hover:shadow-blush/20 sm:w-72 md:w-80">
+            <div class="relative aspect-4/3 overflow-hidden bg-white">
+              <img src="./asset/coverbook.png" alt="" loading="lazy" decoding="async" class="size-full object-cover transition duration-700 group-hover:scale-105">
+              <span class="absolute left-4 top-4 rounded-full bg-blush px-3 py-1 text-xs font-bold tracking-widest text-ink">DESIGN</span>
+            </div>
+            <h3 class="p-5 font-display text-lg font-normal uppercase leading-tight text-blush">Cover Book Design</h3>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience" class="flex min-h-screen flex-col justify-center py-16 md:py-20">
+    <div class="mx-auto w-22/25 max-w-6xl sm:w-9/10">
+      <div class="mb-10 md:mb-14">
+        <h2 class="reveal font-title text-title font-normal uppercase tracking-wide text-blush"><span class="mr-1 inline-block text-transparent text-outline-blush" aria-hidden="true">/</span>Experience</h2>
+        <p class="mt-7 text-sm text-white md:text-base">Time flies so fast, huh?</p>
+      </div>
+
+      <div class="mx-auto w-full max-w-4xl">
+        <div class="reveal flex flex-col gap-3 border-b border-blush py-6 md:flex-row md:gap-12 md:py-8">
+          <p class="w-full shrink-0 text-sm font-bold text-sand md:w-36">2017 - 2022</p>
+          <div>
+            <h3 class="mb-1 text-lg font-bold text-sand sm:text-xl md:text-2xl">Elementary School</h3>
+            <h4 class="mb-3 text-sm font-bold text-blush">Imam Syafi'i Islamic Elementary School</h4>
+            <p class="text-sm text-white">I studied elementary school at Imam Syafi'i</p>
+          </div>
+        </div>
+
+        <div class="reveal flex flex-col gap-3 border-b border-blush py-6 md:flex-row md:gap-12 md:py-8">
+          <p class="w-full shrink-0 text-sm font-bold text-sand md:w-36">2023 - 2025</p>
+          <div>
+            <h3 class="mb-1 text-lg font-bold text-sand sm:text-xl md:text-2xl">Junior high school</h3>
+            <h4 class="mb-3 text-sm font-bold text-blush">Imam Bukhari Boarding School</h4>
+            <p class="text-sm text-white">I studied at Imam Bukhari for 5 semesters</p>
+          </div>
+        </div>
+
+        <div class="reveal flex flex-col gap-3 border-b border-blush py-6 md:flex-row md:gap-12 md:py-8">
+          <p class="w-full shrink-0 text-sm font-bold text-sand md:w-36">2025 - 2026</p>
+          <div>
+            <h3 class="mb-1 text-lg font-bold text-sand sm:text-xl md:text-2xl">Junior high school</h3>
+            <h4 class="mb-3 text-sm font-bold text-blush">Al Aqsha Boarding School</h4>
+            <p class="text-sm text-white">I studied at Al-Aqsha for 1 semester</p>
+          </div>
+        </div>
+
+        <div class="reveal flex flex-col gap-3 border-b border-blush py-6 md:flex-row md:gap-12 md:py-8">
+          <p class="w-full shrink-0 text-sm font-bold text-sand md:w-36">2026 - Now</p>
+          <div>
+            <h3 class="mb-1 text-lg font-bold text-sand sm:text-xl md:text-2xl">Senior High School</h3>
+            <h4 class="mb-3 text-sm font-bold text-blush">Abu Dzar Boarding School</h4>
+            <p class="text-sm text-white">I studied at Abu Dzar from the 2026 - 2027 academic year until now</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICE ================= -->
+  <section id="service" class="flex min-h-screen flex-col justify-center py-16 md:py-20">
+    <div class="mx-auto w-22/25 max-w-6xl sm:w-9/10">
+      <div class="mb-10 md:mb-14">
+        <h2 class="reveal font-title text-title font-normal uppercase tracking-wide text-blush"><span class="mr-1 inline-block text-transparent text-outline-blush" aria-hidden="true">/</span>Services</h2>
+      </div>
+
+      <div class="flex flex-col gap-5 md:flex-row">
+        <div class="reveal flex-1 rounded-2xl bg-sand px-5 py-6 transition duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-cream/40 sm:p-8 md:p-9">
+          <h3 class="my-5 text-center text-xl font-bold text-blush md:my-8 md:text-2xl">Web Development</h3>
+          <p class="mb-5 text-center text-xs text-ink md:text-sm">Building functional and responsive websites using HTML and CSS with clean and organized code.</p>
+        </div>
+
+        <div class="reveal flex-1 rounded-2xl bg-sand px-5 py-6 transition duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-cream/40 sm:p-8 md:p-9">
+          <h3 class="my-5 text-center text-xl font-bold text-blush md:my-8 md:text-2xl">Web Designer</h3>
+          <p class="mb-5 text-center text-xs text-ink md:text-sm">Designing modern and engaging websites with a focus on layout, visual appearance, and user experience.</p>
+        </div>
+
+        <div class="reveal flex-1 rounded-2xl bg-sand px-5 py-6 transition duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-cream/40 sm:p-8 md:p-9">
+          <h3 class="my-5 text-center text-xl font-bold text-blush md:my-8 md:text-2xl">Graphic Designer</h3>
+          <p class="mb-5 text-center text-xs text-ink md:text-sm">Creating eye-catching posters, book covers, and visual designs with strong layouts, balanced typography, <br> and a clear message.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="flex min-h-screen flex-col justify-center py-16 md:py-20">
+    <div class="mx-auto w-22/25 max-w-6xl sm:w-9/10">
+      <div class="flex flex-col justify-between gap-10 md:flex-row md:gap-24">
+        <div class="reveal w-full md:w-11/20">
+          <h2 class="reveal font-title text-contact font-normal uppercase tracking-wide text-blush"><span class="mr-1 inline-block text-transparent text-outline-blush" aria-hidden="true">/</span>Have a project?</h2>
+          <p class="mt-7 text-xs text-white md:text-sm">Let’s bring it to life together. <br> Feel free to reach out and let’s create something great. <br> DM for collaborations &amp; inquiries.</p>
+          <p class="mt-8 text-sm font-extralight text-blush md:text-xl">Don't hesitate to collaborate with me, because I'm like a cobra. <span class="text-sand">“Banyak bisanya”</span></p>
+        </div>
+        <dl class="reveal w-full md:w-7/20">
+          <div class="reveal border-b border-blush py-4"><dt class="mb-1.5 text-xs text-sand">Email</dt><dd class="text-sm"><a href="mailto:qeidrya11@gmail.com" class="transition hover:text-sand">qeidrya11@gmail.com</a></dd></div>
+          <div class="reveal border-b border-blush py-4"><dt class="mb-1.5 text-xs text-sand">Location</dt><dd class="text-sm"><span class="font-bold">Bogor, West Java</span></dd></div>
+          <div class="reveal border-b border-blush py-4"><dt class="mb-1.5 text-xs text-sand">Instagram</dt><dd class="text-sm"><a href="https://www.instagram.com/sharasendrya_/" target="_blank" rel="noopener noreferrer" class="transition hover:text-sand">@sharasendrya_</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-blush-dark py-5 text-sand">
+  <div class="mx-auto flex w-22/25 max-w-6xl flex-col items-center justify-between gap-3 text-center sm:w-9/10 md:flex-row md:gap-0">
+    <p class="text-xs font-light md:text-sm">&copy; Caesar Rasendrya.</p>
+    <p class="text-xs font-light md:text-sm">All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Musik: browser memblokir suara otomatis, jadi musik mulai saat tombol Enter ditekan.
+  (() => {
+    const audio = document.getElementById('bgm');
+    const toggle = document.getElementById('music-btn');
+    const enter = document.getElementById('enter');
+    let wasPlaying = false;
+
+    audio.volume = 0.4;
+    const sync = () => toggle.setAttribute('aria-pressed', String(!audio.paused));
+    audio.addEventListener('play', sync);
+    audio.addEventListener('pause', sync);
+
+    audio.play().catch(() => {}); // dicoba otomatis; kalau diblokir, mulai saat Enter
+    enter.addEventListener('change', () => { if (enter.checked) audio.play().catch(() => {}); });
+    toggle.addEventListener('click', () => { audio.paused ? audio.play().catch(() => {}) : audio.pause(); });
+
+    // jeda saat tab disembunyikan, lanjut saat kembali
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { wasPlaying = !audio.paused; audio.pause(); }
+      else if (wasPlaying) { audio.play().catch(() => {}); }
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,325 @@
+@import "tailwindcss";
+
+@theme {
+  /* warna */
+  --color-cream: #fff9d8;
+  --color-sand: #fbe6c2;
+  --color-blush: #ea9d9d;
+  --color-blush-dark: #d98a8a;
+  --color-ink: #1e1e1e;
+  --color-night: #141414;
+
+  /* font */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Archivo Black", "Arial Black", ui-sans-serif, sans-serif;
+  --font-title: "Anton", "Arial Narrow", ui-sans-serif, sans-serif;
+
+  /* ukuran teks fluid */
+  --text-hero: 11vw;
+  --text-hero--line-height: 1;
+  --text-hero-lg: 7.6vw;
+  --text-hero-lg--line-height: 1;
+  --text-title: clamp(3rem, 9vw, 8rem);
+  --text-title--line-height: 1;
+  --text-contact: clamp(2.5rem, 5.5vw, 5.5rem);
+  --text-contact--line-height: 1;
+
+  /* ticker */
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 40s linear infinite;
+
+  /* loading screen */
+  --animate-load-bar: load-bar calc(var(--intro) - 0.5s) cubic-bezier(0.65, 0, 0.35, 1) 0.1s both;
+  --animate-text-up: text-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-logo-pulse: logo-pulse 1.2s ease-in-out infinite;
+  --animate-wave: wave 2.2s ease-in-out infinite;
+  --animate-msg-out: msg-out 0.3s ease calc(var(--intro) - 0.3s) forwards;
+  --animate-msg-in: msg-in 0.5s ease calc(var(--intro) - 0.1s) both;
+  --animate-enter: msg-in 0.5s ease calc(var(--intro) - 0.1s) both,
+    enter-pulse 2s ease-out calc(var(--intro) + 0.6s) infinite;
+
+  /* animasi masuk hero (mulai setelah tombol Enter ditekan) */
+  --animate-from-left: from-left 1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+  --animate-from-right: from-right 1s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+  --animate-rise: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
+  --animate-rise-late: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.95s both;
+  --animate-photo: pop-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both,
+    float 6s ease-in-out 2s infinite;
+
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+  @keyframes load-bar {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  @keyframes text-up {
+    from { transform: translateY(110%); }
+    to { transform: none; }
+  }
+  @keyframes logo-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+  @keyframes wave {
+    0%, 60%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(14deg); }
+    20%, 40% { transform: rotate(-8deg); }
+    50% { transform: rotate(10deg); }
+  }
+  @keyframes msg-out {
+    to { opacity: 0; transform: translateY(-0.5rem); }
+  }
+  @keyframes msg-in {
+    from { opacity: 0; transform: translateY(0.5rem); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes enter-pulse {
+    from { box-shadow: 0 0 0 0 rgb(234 157 157 / 0.55); }
+    to { box-shadow: 0 0 0 1.25rem rgb(234 157 157 / 0); }
+  }
+  @keyframes from-left {
+    from { opacity: 0; transform: translateX(-3rem); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes from-right {
+    from { opacity: 0; transform: translateX(3rem); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(1.5rem); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes pop-in {
+    from { opacity: 0; transform: translateY(2rem) scale(0.92); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-0.6rem); }
+  }
+}
+
+@layer base {
+  :root {
+    /* lama loading bar berjalan sebelum tombol Enter muncul */
+    --intro: 2.4s;
+  }
+
+  a:focus-visible {
+    outline: 0.125rem solid var(--color-sand);
+    outline-offset: 0.25rem;
+  }
+}
+
+/* angka persen di loading screen (murni CSS) */
+@property --pct {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@keyframes count-up {
+  from { --pct: 0; }
+  to { --pct: 100; }
+}
+
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(2.5rem); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes panel-up {
+  to { transform: translateY(-100%); }
+}
+
+@keyframes panel-down {
+  to { transform: translateY(100%); }
+}
+
+@keyframes intro-content {
+  to { opacity: 0; transform: scale(1.06); }
+}
+
+@keyframes intro-exit {
+  to { visibility: hidden; }
+}
+
+@keyframes eq {
+  0%, 100% { transform: scaleY(0.25); }
+  50% { transform: scaleY(1); }
+}
+
+@layer components {
+  .intro-counter {
+    counter-reset: pct var(--pct);
+    animation: count-up calc(var(--intro) - 0.5s) cubic-bezier(0.65, 0, 0.35, 1) 0.1s both;
+  }
+  .intro-counter::after {
+    content: counter(pct) "%";
+  }
+
+  /* tirai terbuka setelah tombol Enter ditekan (checkbox #enter) */
+  #enter:checked ~ .intro .intro-content {
+    animation: intro-content 0.4s ease forwards;
+  }
+  #enter:checked ~ .intro .intro-panel-top {
+    animation: panel-up 0.9s cubic-bezier(0.77, 0, 0.18, 1) 0.3s forwards;
+  }
+  #enter:checked ~ .intro .intro-panel-bottom {
+    animation: panel-down 0.9s cubic-bezier(0.77, 0, 0.18, 1) 0.3s forwards;
+  }
+  #enter:checked ~ .intro {
+    animation: intro-exit 0.01s linear 1.3s forwards;
+  }
+  #enter:focus-visible ~ .intro .enter-btn {
+    outline: 0.125rem solid var(--color-sand);
+    outline-offset: 0.25rem;
+  }
+
+  /* deskripsi tile galeri: muncul saat hover atau saat tile difokus / di-tap */
+  .tile-detail {
+    max-height: 0;
+    margin-top: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      max-height 0.5s ease,
+      margin-top 0.5s ease,
+      opacity 0.5s ease;
+  }
+  .group:hover .tile-detail,
+  .group:focus-within .tile-detail {
+    max-height: 4rem;
+    margin-top: 0.5rem;
+    opacity: 1;
+  }
+
+  /* tombol musik */
+  .music-bar {
+    display: block;
+    width: 0.1875rem;
+    height: 100%;
+    border-radius: 9999px;
+    background: currentColor;
+    transform-origin: bottom;
+    transform: scaleY(0.25);
+  }
+  .music-btn[aria-pressed="true"] .music-bar {
+    animation: eq 0.9s ease-in-out infinite;
+  }
+  .music-btn[aria-pressed="true"] .music-bar:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .music-btn[aria-pressed="true"] .music-bar:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  .music-btn::after {
+    content: "";
+    position: absolute;
+    width: 1.75rem;
+    height: 0.125rem;
+    border-radius: 9999px;
+    background: currentColor;
+    rotate: -45deg;
+  }
+  .music-btn[aria-pressed="true"]::after {
+    display: none;
+  }
+
+  /* muncul pelan saat di-scroll (aktif di browser yang mendukung, sisanya tampil biasa) */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+  }
+
+  /* garis progres scroll di atas halaman */
+  .scroll-progress {
+    display: none;
+  }
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress {
+      display: block;
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 90;
+      height: 0.25rem;
+      background: var(--color-blush);
+      transform-origin: 0 50%;
+      animation: progress linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
+/* sebelum Enter ditekan: halaman dikunci & animasi menunggu */
+@media (prefers-reduced-motion: no-preference) {
+  body:has(#enter:not(:checked)) {
+    overflow: hidden;
+  }
+  #enter:not(:checked) ~ main,
+  #enter:not(:checked) ~ main * {
+    animation-play-state: paused !important;
+  }
+}
+
+/* hormati pengguna yang mematikan animasi di sistemnya */
+@media (prefers-reduced-motion: reduce) {
+  .intro {
+    display: none;
+  }
+  .reveal,
+  .scroll-progress,
+  .music-btn .music-bar,
+  [class*="animate-"] {
+    animation: none !important;
+  }
+}
+
+/* teks outline */
+@utility text-outline-blush {
+  -webkit-text-stroke: 0.125rem var(--color-blush);
+}
+
+@utility text-outline-blush-thin {
+  -webkit-text-stroke: 0.0625rem var(--color-blush);
+}
+
+@utility text-outline-blush-dark {
+  -webkit-text-stroke: 0.125rem var(--color-blush-dark);
+}
+
+@utility text-outline-sand {
+  -webkit-text-stroke: 0.125rem var(--color-sand);
+}
+
+@utility text-outline-sand-thick {
+  -webkit-text-stroke: 0.1875rem var(--color-sand);
+}
+
+@utility text-outline-none {
+  -webkit-text-stroke: 0;
+}
+
+/* pudar di kiri-kanan ticker */
+@utility mask-fade-x {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+/* berhentikan animasi saat hover */
+@utility pause-anim {
+  animation-play-state: paused;
+}
